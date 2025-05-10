@@ -1,0 +1,45 @@
+🌿 Plant Care Activities
+
+
+💧 1. Watering
+Most common activity
+
+Users mark when a plant has been watered
+
+Schedule: Daily, weekly, etc.
+
+🌱 2. Fertilizing
+Essential for plant nutrition
+
+Typically done less frequently (e.g., every 2–4 weeks)
+
+✂️ 3. Pruning
+Trimming dead or overgrown parts
+
+Improves plant health and shape
+
+Done seasonally or as needed
+
+🌞 4. Sunlight Adjustment
+Move plants indoors/outdoors or rotate them
+
+Not scheduled, but trackable as a log
+
+🔁 5. Repotting
+Changing the pot when the plant outgrows it
+
+Usually seasonal or annual
+
+🦠 6. Pest/Disease Check
+Regular inspections for pests or disease
+
+Users can log issues and mark as resolved
+
+🧼 7. Leaf Cleaning
+Wipe leaves to remove dust and improve photosynthesis
+
+Common for indoor plants
+
+🌡️ 8. Temperature/Humidity Adjustment
+Track or log if the plant needed extra attention due to weather changes
+
