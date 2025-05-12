@@ -10,6 +10,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.UserController",
+    "Method": "AddUser",
+    "RelativePath": "UserAdd",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "Plant_Care_Reminder_System.Controllers.UserDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
