@@ -10,6 +10,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IUserAddService, UserAddService>();
+builder.Services.AddScoped<IAddPlantService, AddPlantService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

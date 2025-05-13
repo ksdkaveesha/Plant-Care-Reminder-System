@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
+    "Method": "AddPlant",
+    "RelativePath": "AddPlant",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "plant",
+        "Type": "Plant_Care_Reminder_System.Controllers.PlantController\u002BPlantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "TestController",
     "Method": "CheckConnection",
     "RelativePath": "api/Test/check",
