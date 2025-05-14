@@ -2,14 +2,93 @@
   {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
     "Method": "AddPlant",
-    "RelativePath": "AddPlant",
+    "RelativePath": "api/Plant/AddPlant",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "plant",
-        "Type": "Plant_Care_Reminder_System.Controllers.PlantController\u002BPlantDto",
+        "Type": "Plant_Care_Reminder_System.Dtos.PlantDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
+    "Method": "GetPlantById",
+    "RelativePath": "api/Plant/GetPlantById/{userId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
+    "Method": "UpdateLastFertilizedDate",
+    "RelativePath": "api/Plant/UpdateLastFertilizedDate/{plantId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "plantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lastFertilizedDate",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
+    "Method": "UpdateLastWateredDate",
+    "RelativePath": "api/Plant/UpdateLastWateredDate/{plantId}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "plantId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "lastWateredDate",
+        "Type": "System.DateTime",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.RemainderController",
+    "Method": "GetRemainder",
+    "RelativePath": "api/Remainder/GetRemainder/{userId}/{reminderDate}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "reminderDate",
+        "Type": "System.DateTime",
         "IsRequired": true
       }
     ],
@@ -28,38 +107,17 @@
   {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.UserController",
     "Method": "AddUser",
-    "RelativePath": "UserAdd",
+    "RelativePath": "api/User/UserAdd",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
         "Name": "user",
-        "Type": "Plant_Care_Reminder_System.Controllers.UserDto",
+        "Type": "Plant_Care_Reminder_System.Dtos.UserDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
-  },
-  {
-    "ContainingType": "Plant_Care_Reminder_System.Controllers.WeatherForecastController",
-    "Method": "Get",
-    "RelativePath": "WeatherForecast",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[Plant_Care_Reminder_System.WeatherForecast, Plant Care Reminder System, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ],
-    "EndpointName": "GetWeatherForecast"
   }
 ]
