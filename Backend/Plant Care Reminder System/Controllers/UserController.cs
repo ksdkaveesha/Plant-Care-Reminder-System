@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Plant_Care_Reminder_System.Dtos;
 using Plant_Care_Reminder_System.Services;
 
 namespace Plant_Care_Reminder_System.Controllers
 {
+    [ApiController]
+    [Route("api/[controller]")]
     public class UserController : Controller
     {
         private readonly IUserAddService _userService;
@@ -22,10 +25,5 @@ namespace Plant_Care_Reminder_System.Controllers
 
     }
 
-    public class UserDto
-    {
-        public string Username { get; set; }
-        public string Email { get; set; }
-        public string Password { get; set; }
-    }
+    
 }

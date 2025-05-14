@@ -3,20 +3,16 @@
   "WorkspaceRootPath": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\controllers\\plantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:controllers\\plantcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\services\\addplantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:services\\addplantservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\dtos\\plantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:dtos\\plantdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|d:\\blue lotus 360\\works\\plant care reminder system\\backend\\plant care reminder system\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0B6F216-90AC-4CF8-A950-381E6D8FFD8A}|Plant Care Reminder System.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -39,47 +35,32 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-12T20:49:18.572Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddPlantService.cs",
-              "DocumentMoniker": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Services\\AddPlantService.cs",
-              "RelativeDocumentMoniker": "Services\\AddPlantService.cs",
-              "ToolTip": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Services\\AddPlantService.cs",
-              "RelativeToolTip": "Services\\AddPlantService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAACpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T06:43:08.546Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PlantController.cs",
               "DocumentMoniker": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Controllers\\PlantController.cs",
               "RelativeDocumentMoniker": "Controllers\\PlantController.cs",
               "ToolTip": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Controllers\\PlantController.cs",
               "RelativeToolTip": "Controllers\\PlantController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAACgNDMzMzMbwBcAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T06:41:18.335Z",
+              "WhenOpened": "2025-05-13T15:05:06.851Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "Controllers\\UserController.cs",
-              "ToolTip": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Controllers\\UserController.cs",
-              "RelativeToolTip": "Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "PlantDto.cs",
+              "DocumentMoniker": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Dtos\\PlantDto.cs",
+              "RelativeDocumentMoniker": "Dtos\\PlantDto.cs",
+              "ToolTip": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Dtos\\PlantDto.cs",
+              "RelativeToolTip": "Dtos\\PlantDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-13T06:41:33.081Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-13T15:04:22.495Z"
             }
           ]
         }
