@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'pcr-frontend' title`, () => {
+  it(`should have the 'plant-care-system' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('pcr-frontend');
+    expect(app.title).toEqual('plant-care-system');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, pcr-frontend');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, plant-care-system');
   });
 });
