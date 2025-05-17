@@ -1,0 +1,88 @@
+<div class="page-wrapper">  
+
+  <!-- stat cards -->
+  <div class="stat-wrapper d-flex rounded-4 bg-white mb-5 px-4 py-4 gap-3 flex-column flex-md-row">
+    <div class="stat-card flex-fill d-flex align-items-center gap-3">
+      <div class="icon-circle text-success">
+        <img src="assets/totalusers.png" alt="User" class="me-2" style="height: 45px; width: 45px; object-fit: cover;" />
+      </div>
+      <div>
+        <div class="stat-label">Total Users</div>
+        <div class="stat-value">{{ stats.totalUsers | number }}</div>
+      </div>
+    </div>
+
+    <div class="vr d-none d-md-block mx-2"></div>
+
+    <div class="stat-card flex-fill d-flex align-items-center gap-3">
+      <div class="icon-circle text-success">
+        <img src="assets/totalPlants.png" alt="User" class="me-2" style="height: 45px; width: 45px; object-fit: cover;" />
+      </div>
+      <div>
+        <div class="stat-label">Total Plants</div>
+        <div class="stat-value">{{ stats.totalPlants | number }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- all plants -->
+  <div class="content-box bg-white rounded-4 p-4">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center mb-4 gap-2">
+      <div>
+        <h3 class="fw-bold mb-1">All Plants</h3>
+        <p class="text-success small mb-0">All Plants Shows Here</p>
+      </div>
+
+      <div class="d-flex gap-2 ">
+        <div class="input-group input-group-sm search-id">
+          <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
+          <input class="form-control border-start-0" placeholder="Enter User Id">
+        </div>
+
+        <select class="form-select form-select-sm w-auto">
+          <option selected>Short by : All</option>
+          <option>Water Freq</option>
+          <option>Last Watered</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table align-middle mb-0">
+        <thead class="table-light text-nowrap">
+          <tr>
+            <th>Plant ID</th>
+            <th>Plant Name</th>
+            <th>Species</th>
+            <th>Water Fre.<br><small class="fw-normal">(per Week)</small></th>
+            <th>Fertilizing Fre.<br><small class="fw-normal">(per Week)</small></th>
+            <th>Last Watered</th>
+            <th>Last Fertilized</th>
+            <th>Care Instructions</th>
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let plant of plants">
+            <td>{{ plant.id }}</td>
+            <td>{{ plant.name }}</td>
+            <td>{{ plant.species }}</td>
+            <td>{{ plant.wateringFreq }}</td>
+            <td>{{ plant.fertilizingFreq }}</td>
+            <td>{{ plant.lastWatered }}</td>
+            <td>{{ plant.lastFertilized }}</td>
+            <td>{{ plant.instructions }}</td>
+            <td class="text-end d-flex">
+              <button class="btn btn-sm btn-warning px-3 me-1">Update</button>
+              <button class="btn btn-sm btn-outline-danger px-3"
+                      (click)="deletePlant(plant.id)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

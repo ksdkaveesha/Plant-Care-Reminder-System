@@ -1,0 +1,48 @@
+<div class="d-flex flex-column justify-content-between bg-white vh-100 p-4" style="width: 200px;">
+      
+      <!-- Logo and Title -->
+      <div>
+        <div class="text-center mb-5">
+          <img src="assets/Logo.png" alt="Logo" class="img-fluid mb-2" style="height: 60px;" />
+          <h5 class="fw-bold m-0">PCR</h5>
+          <h5 class="fw-bold fst-italic">System</h5>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="nav flex-column">
+          <!-- Dashboard (Active) -->
+          <a 
+            routerLink="/dashboard" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{ exact: true }"
+            class="nav-link d-flex align-items-center text-white bg-primary rounded px-3 py-2 mb-2"
+          >
+            <i class="fas fa-magnifying-glass me-2"></i>
+            Dashboard
+          </a>
+
+          <!-- Add Plant -->
+          <a 
+            routerLink="/add-plant"
+            class="nav-link d-flex justify-content-between align-items-center text-muted rounded px-3 py-2"
+          >
+            <span class="d-flex align-items-center">
+              <i class="far fa-square me-2"></i>
+              Add Plant
+            </span>
+            <i class="fas fa-chevron-right small text-secondary"></i>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Profile Section -->
+      <div class="d-flex align-items-center mt-4">
+        <img src="assets/Logo.png" alt="User" class="rounded-circle me-2" style="height: 40px; width: 40px; object-fit: cover;" />
+        <div class="me-auto">
+          <div class="fw-semibold text-dark">Kaveesha</div>
+          <div class="text-muted small">Staff</div>
+        </div>
+        <i class="fas fa-chevron-down text-muted"></i>
+      </div>
+
+    </div>

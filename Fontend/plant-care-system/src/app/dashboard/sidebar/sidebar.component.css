@@ -1,0 +1,7 @@
+.nav-link.active {
+      background-color: #6f42c1 !important; /* Bootstrap's purple */
+      color: white !important;
+    }
+    .nav-link:hover {
+      background-color: #f8f9fa;
+    }

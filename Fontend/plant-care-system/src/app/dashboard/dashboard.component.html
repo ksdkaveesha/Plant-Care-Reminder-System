@@ -1,0 +1,20 @@
+<div class="d-flex vh-100">
+  
+      <!-- Sidebar on the left -->
+      <app-sidebar></app-sidebar>
+
+      <!-- Main content area on the right -->
+      <div class="flex-grow-1 p-4 bg-light overflow-auto">
+        <!-- top greeting + search -->
+  <div class="d-flex justify-content-between align-items-start mb-4">
+    <h2 class="fw-bold">Hello Kaveesha <span class="wave">👋</span>,</h2>
+
+    <div class="search-box">
+      <i class="fas fa-search text-muted"></i>
+      <input type="text" class="form-control form-control-sm border-0 shadow-none"
+             placeholder="Search" />
+    </div>
+  </div>
+        <router-outlet></router-outlet>
+      </div>
+</div>
