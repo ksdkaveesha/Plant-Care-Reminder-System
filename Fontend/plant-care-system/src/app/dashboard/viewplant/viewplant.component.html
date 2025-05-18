@@ -68,18 +68,18 @@
 
         <tbody>
           <tr *ngFor="let plant of plants">
-            <td>{{ plant.id }}</td>
-            <td>{{ plant.name }}</td>
+            <td>{{ plant.plantId }}</td>
+            <td>{{ plant.plantname }}</td>
             <td>{{ plant.species }}</td>
             <td>{{ plant.wateringFreq }}</td>
             <td>{{ plant.fertilizingFreq }}</td>
             <td>{{ plant.lastWatered }}</td>
             <td>{{ plant.lastFertilized }}</td>
-            <td>{{ plant.instructions }}</td>
+            <td>{{ plant.careInstructions }}</td>
             <td class="text-end d-flex">
-              <button class="btn btn-sm btn-warning px-3 me-1">Update</button>
+              <button class="btn btn-sm btn-warning px-3 me-1" (click)="UpdatePlant(plant)">Update</button>
               <button class="btn btn-sm btn-outline-danger px-3"
-                      (click)="deletePlant(plant.id)">Delete</button>
+                      (click)="deletePlant(plant.plantId)">Delete</button>
             </td>
           </tr>
         </tbody>

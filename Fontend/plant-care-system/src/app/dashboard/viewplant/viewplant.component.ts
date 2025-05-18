@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { PlantService } from '../../Services/plant.service';
 
 @Component({
   selector: 'app-viewplants',
@@ -33,31 +35,41 @@ export class ViewplantComponent {
     totalPlants: 1893
   };
 
+  constructor(private router: Router, private plantService: PlantService) {}
   plants = [
     {
-      id: 1,
-      name: 'Rosa',
+      plantId: 1,
+      userId: 1,
+      plantname: 'Rosa',
       species: 'Species Going Here',
       wateringFreq: 2,
       fertilizingFreq: 4,
       lastWatered: '2025-05-15',
       lastFertilized: '2025-05-15',
-      instructions: 'No Instructions'
+      careInstructions: 'No Instructions'
     },
     {
-      id: 2,
-      name: 'Orchidaceae',
+      plantId: 3,
+      userId: 1,
+      plantname: 'Orchidaceae',
       species: 'Species Going Here',
       wateringFreq: 3,
       fertilizingFreq: 5,
       lastWatered: '2025-05-15',
       lastFertilized: '2025-05-15',
-      instructions: 'No Instructions'
+      careInstructions: 'No Instructions'
     }
   ];
 
   deletePlant(plantId: number) {
     console.log('Deleting plant:', plantId);
     // Add your delete logic here
+  }
+
+  UpdatePlant(plants: any) {
+    console.log('Updating plant:', plants);
+    this.plantService.setPlant(plants);
+    // Navigate to the update plant page
+    this.router.navigate(['/dashboard/updateplant', plants.plantId]);
   }
 }

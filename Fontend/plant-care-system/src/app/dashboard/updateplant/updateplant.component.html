@@ -1,0 +1,42 @@
+<div class="page-wrapper">    
+
+  <!-- all plants -->
+  <div class="content-box bg-white rounded-4 p-4">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center mb-4 gap-2">
+      <div>
+        <h3 class="fw-bold mb-1">Update Plants</h3>
+        <p class="text-success small mb-0">Update the Plant Here</p>
+      </div>      
+    </div>
+
+    <div class="content-box bg-white rounded-4">
+        <form #f="ngForm">
+            <div class="mb-3">
+                <label for="plantId" class="form-label">Plant Id</label>
+                <input type="text" id="plantId" name="plantId" [(ngModel)]="plant.plantId" class="form-control" disabled>
+            </div>
+            <div class="mb-3">
+                <label for="plantname" class="form-label">Plant Name</label>
+                <input type="text" id="plantname" [(ngModel)]="plant.plantname" name="plantname" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="species" class="form-label">Species</label>
+                <input type="text" id="species" name="species" [(ngModel)]="plant.species" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="wateringFreq" class="form-label">Watering Frequency (per week)</label>
+                <input type="number" id="wateringFreq" name="wateringFreq" [(ngModel)]="plant.wateringFreq" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="fertilizingFreq" class="form-label">Fertilizing Frequency (per week)</label>
+                <input type="number" id="fertilizingFreq" name="fertilizingFreq" [(ngModel)]="plant.fertilizingFreq" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="careInstructions" class="form-label">Care Instructions</label>
+                <textarea id="careInstructions" name="careInstructions" [(ngModel)]="plant.careInstructions" class="form-control" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Update Plant</button>
+        </form>
+    </div>
+</div>
