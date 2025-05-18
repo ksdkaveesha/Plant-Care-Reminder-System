@@ -3,6 +3,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ViewplantComponent } from './dashboard/viewplant/viewplant.component';
+import { AddplantComponent } from './dashboard/addplant/addplant.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,7 +15,7 @@ export const routes: Routes = [
     children: [
       // { path: '', component: DashboardComponent },
       { path: 'viewplants', component: ViewplantComponent },
-    //   { path: 'addplant', component: AddPlantComponent }
+      { path: 'addplant', component: AddplantComponent }
     ]
   },
 ];
