@@ -13,6 +13,6 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   redirectToDashboard() {
-    this.router.navigate(['/dashboard/viewplants']);
+    this.router.navigate(['dashboard']);
   }
 }
