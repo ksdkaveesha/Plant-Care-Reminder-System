@@ -17,15 +17,19 @@
             routerLink="/dashboard/viewplants" 
             routerLinkActive="active" 
             [routerLinkActiveOptions]="{ exact: true }"
-            class="nav-link d-flex align-items-center text-white bg-primary rounded px-3 py-2 mb-2"
+            class="nav-link d-flex justify-content-between align-items-center text-muted rounded px-3 py-2"
           >
-            <i class="fas fa-key me-2"></i>
-            Dashboard
+            <span class="d-flex align-items-center">
+              <i class="fas fa-key me-2"></i>
+              Dashboard
+            </span>
+            <i class="fas fa-chevron-right small text-secondary"></i>
           </a>
 
           <!-- Add Plant -->
           <a 
             routerLink="/dashboard/addplant"
+            routerLinkActive="active"
             class="nav-link d-flex justify-content-between align-items-center text-muted rounded px-3 py-2"
           >
             <span class="d-flex align-items-center">
