@@ -4,11 +4,12 @@ import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { PlantService } from '../../Services/plant.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-viewplants',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './viewplant.component.html',
   styleUrls: ['./viewplant.component.css'],
   animations: [
@@ -29,6 +30,8 @@ import { PlantService } from '../../Services/plant.service';
 
 export class ViewplantComponent {
   animationState = 0;
+  searchTerm: string = '';
+  itemsPerPage: number | 'all' = 5;
   
   stats = {
     totalUsers: 5422,
@@ -59,6 +62,51 @@ export class ViewplantComponent {
       lastFertilized: '2025-05-15',
       careInstructions: 'No Instructions'
     }
+    ,
+    {
+      plantId: 4,
+      userId: 1,
+      plantname: 'Cactaceae',
+      species: 'Species Going Here',
+      wateringFreq: 1,
+      fertilizingFreq: 2,
+      lastWatered: '2025-05-15',
+      lastFertilized: '2025-05-15',
+      careInstructions: 'No Instructions'
+    },
+    {
+      plantId: 5,
+      userId: 1,
+      plantname: 'Arecaceae',
+      species: 'Species Going Here',
+      wateringFreq: 2,
+      fertilizingFreq: 4,
+      lastWatered: '2025-05-15',
+      lastFertilized: '2025-05-15',
+      careInstructions: 'No Instructions'
+    },
+    {
+      plantId: 6,
+      userId: 1,
+      plantname: 'Arecaceae',
+      species: 'Species Going Here',
+      wateringFreq: 2,
+      fertilizingFreq: 4,
+      lastWatered: '2025-05-15',
+      lastFertilized: '2025-05-15',
+      careInstructions: 'No Instructions'
+    },
+    {
+      plantId: 7,
+      userId: 1,
+      plantname: 'Arecaceae',
+      species: 'Species Going Here',
+      wateringFreq: 2,
+      fertilizingFreq: 4,
+      lastWatered: '2025-05-15',
+      lastFertilized: '2025-05-15',
+      careInstructions: 'No Instructions'
+    }
   ];
 
   deletePlant(plantId: number) {
@@ -71,5 +119,38 @@ export class ViewplantComponent {
     this.plantService.setPlant(plants);
     // Navigate to the update plant page
     this.router.navigate(['/dashboard/updateplant', plants.plantId]);
+  }
+
+  ngOnInit() {
+    this.onItemsPerPageChange();   
+  }
+  
+  plantList: { 
+    plantId: number; 
+    userId: number; 
+    plantname: string; 
+    species: string; 
+    wateringFreq: number; 
+    fertilizingFreq: number; 
+    lastWatered: string; 
+    lastFertilized: string; 
+    careInstructions: string;
+  }[] = [];  
+
+  onItemsPerPageChange(): void {
+    this.plantList =
+      this.itemsPerPage === 'all'
+        ? this.plants
+        : this.plants.slice(0, this.itemsPerPage as number);
+  }
+
+  onSearch() {
+    if (this.searchTerm) {
+      this.plantList = this.plants.filter(plants => 
+        plants.plantname.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    } else {
+      this.onItemsPerPageChange();
+    }
   }
 }

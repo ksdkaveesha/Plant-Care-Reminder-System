@@ -37,15 +37,15 @@
       <div class="d-flex gap-2 ">
         <div class="input-group input-group-sm search-id">
           <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
-          <input class="form-control border-start-0" placeholder="Enter User Id">
+          <input class="form-control border-start-0" placeholder="Enter User Id" [(ngModel)]="searchTerm" (input)="onSearch()" />
         </div>
 
-        <select class="form-select form-select-sm w-auto">
-            <option selected value="10">Short by : 10</option>
-            <option value="25">25</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-            <option value="all">All</option>
+        <select class="form-select form-select-sm w-auto" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+            <option [value]="5">Show 5</option>
+            <option [value]="10">10</option>
+            <option [value]="50">50</option>
+            <option [value]="100">100</option>
+            <option [ngValue]="'all'">All</option>
         </select>
       </div>
     </div>
@@ -67,7 +67,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let plant of plants">
+          <tr *ngFor="let plant of plantList">
             <td>{{ plant.plantId }}</td>
             <td>{{ plant.plantname }}</td>
             <td>{{ plant.species }}</td>
