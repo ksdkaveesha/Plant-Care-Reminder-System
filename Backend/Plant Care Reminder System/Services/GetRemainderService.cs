@@ -13,11 +13,11 @@ namespace Plant_Care_Reminder_System.Services
             var reminder = new List<Reminder>();
 
             using (SqlConnection conn = new SqlConnection(_configuration))
-            using (SqlCommand cmd = new SqlCommand("sp_GetReminders", conn))
+            using (SqlCommand cmd = new SqlCommand("sp_GetRemindersByDate", conn))
             {
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@UserId", user_id);
-                cmd.Parameters.AddWithValue("@ReminderDate", reminder_date);
+                cmd.Parameters.Add("@UserId", SqlDbType.Int).Value = user_id;
+                cmd.Parameters.Add("@Date", SqlDbType.Date).Value = reminder_date.Date;
                 conn.Open();
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {

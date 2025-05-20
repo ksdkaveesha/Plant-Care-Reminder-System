@@ -1,18 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { Router } from '@angular/router';
-import { trigger, transition, style, animate } from '@angular/animations';
-import { PlantService } from '../../Services/plant.service';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { trigger, transition, style, animate } from '@angular/animations';
+
+import { PlantService } from '../../Services/plant.service';
+import { PlantDto }   from '../../models/plant.model';
 
 @Component({
-  selector: 'app-viewplants',
-  standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  selector   : 'app-viewplants',
+  standalone : true,
+  imports    : [CommonModule, RouterModule, FormsModule],
   templateUrl: './viewplant.component.html',
-  styleUrls: ['./viewplant.component.css'],
-  animations: [
+  styleUrls  : ['./viewplant.component.css'],
+  animations : [
     trigger('fadeIn', [
       transition('* => *', [
         style({ opacity: 0, transform: 'translateY(20px)' }),
@@ -29,128 +30,106 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class ViewplantComponent {
-  animationState = 0;
-  searchTerm: string = '';
+
+  /* ────────────────────────── UI state ────────────────────────── */
+  searchTerm   = '';
   itemsPerPage: number | 'all' = 5;
-  
-  stats = {
-    totalUsers: 5422,
-    totalPlants: 1893
-  };
 
-  constructor(private router: Router, private plantService: PlantService) {}
-  plants = [
-    {
-      plantId: 1,
-      userId: 1,
-      plantname: 'Rosa',
-      species: 'Species Going Here',
-      wateringFreq: 2,
-      fertilizingFreq: 4,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    },
-    {
-      plantId: 3,
-      userId: 1,
-      plantname: 'Orchidaceae',
-      species: 'Species Going Here',
-      wateringFreq: 3,
-      fertilizingFreq: 5,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    }
-    ,
-    {
-      plantId: 4,
-      userId: 1,
-      plantname: 'Cactaceae',
-      species: 'Species Going Here',
-      wateringFreq: 1,
-      fertilizingFreq: 2,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    },
-    {
-      plantId: 5,
-      userId: 1,
-      plantname: 'Arecaceae',
-      species: 'Species Going Here',
-      wateringFreq: 2,
-      fertilizingFreq: 4,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    },
-    {
-      plantId: 6,
-      userId: 1,
-      plantname: 'Arecaceae',
-      species: 'Species Going Here',
-      wateringFreq: 2,
-      fertilizingFreq: 4,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    },
-    {
-      plantId: 7,
-      userId: 1,
-      plantname: 'Arecaceae',
-      species: 'Species Going Here',
-      wateringFreq: 2,
-      fertilizingFreq: 4,
-      lastWatered: '2025-05-15',
-      lastFertilized: '2025-05-15',
-      careInstructions: 'No Instructions'
-    }
-  ];
+  loading   = signal(true);
+  errorMsg  = signal('');
+  plants    = signal<PlantDto[]>([]);
+  plantList = signal<PlantDto[]>([]);     // list that the table actually shows
 
-  deletePlant(plantId: number) {
-    console.log('Deleting plant:', plantId);
-    // Add your delete logic here
-  }
+  /* ───────────────────────── dashboard stats (mock) ───────────── */
+  stats = { totalUsers: 5422, totalPlants: 1893 };
 
-  UpdatePlant(plants: any) {
-    console.log('Updating plant:', plants);
-    this.plantService.setPlant(plants);
-    // Navigate to the update plant page
-    this.router.navigate(['/dashboard/updateplant', plants.plantId]);
-  }
+  visibleCount: number = 0;
 
-  ngOnInit() {
-    this.onItemsPerPageChange();   
-  }
-  
-  plantList: { 
-    plantId: number; 
-    userId: number; 
-    plantname: string; 
-    species: string; 
-    wateringFreq: number; 
-    fertilizingFreq: number; 
-    lastWatered: string; 
-    lastFertilized: string; 
-    careInstructions: string;
-  }[] = [];  
+  constructor(private router: Router, private plantService: PlantService) { }
 
-  onItemsPerPageChange(): void {
-    this.plantList =
-      this.itemsPerPage === 'all'
-        ? this.plants
-        : this.plants.slice(0, this.itemsPerPage as number);
-  }
-
-  onSearch() {
-    if (this.searchTerm) {
-      this.plantList = this.plants.filter(plants => 
-        plants.plantname.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
+    /* ────────────────────────── table helpers ───────────────────── */
+  updatePlantList(): void {
+    const src = this.plants();          // ← read the signal value
+    if (this.itemsPerPage === 'all') {
+      this.plantList.set(src);
     } else {
-      this.onItemsPerPageChange();
+      this.plantList.set(src.slice(0, this.itemsPerPage));
     }
+  }
+
+  /* ─────────── call this whenever either
+        – plants signal changes  OR
+        – itemsPerPage control changes                           */
+  private refreshTable(): void {
+    const src   = this.plants();                   // latest rows
+    const count = this.itemsPerPage === 'all'
+                    ? src.length
+                    : Math.min(src.length, this.itemsPerPage);
+
+    /* slice for paging */
+    this.plantList.set(this.itemsPerPage === 'all'
+                        ? src
+                        : src.slice(0, this.itemsPerPage));
+
+    /* if you show “X items” somewhere, expose the count */
+    this.visibleCount = count;
+  }
+
+  /* ────────────────── dropdown change ────────────────── */
+  onItemsPerPageChange(): void {
+    this.refreshTable();
+  }
+
+  /* ────────────────── initial load ───────────────────── */
+  ngOnInit() {
+    this.fetchByUser(1);                   // default user
+  }
+
+  /* ────────────────── search handler ─────────────────── */
+  onSearch(): void {
+    const term = this.searchTerm.trim();
+    if (!term) {                    // blank → revert to user-1
+      this.fetchByUser(1);
+      return;
+    }
+
+    const id = +term;
+    if (isNaN(id)) {
+      this.plantList.set([]);
+      this.visibleCount = 0;
+      return;
+    }
+    this.fetchByUser(id);
+  }
+
+  /* ─────────── centralised fetch (uses same code) ────── */
+  private fetchByUser(userId: number): void {
+    this.loading.set(true);
+    this.plantService.GetPlantsByUser(userId).subscribe({
+      next : rows => {
+        this.plants.set(rows);
+        this.refreshTable();
+        this.loading.set(false);
+      },
+      error: err => {
+        this.errorMsg.set('Server error – check console.');
+        console.error(err);
+        this.loading.set(false);
+      }
+    });
+  }
+
+
+
+
+  /* ───────────────────────── row actions ──────────────────────── */
+  deletePlant(id: number) {
+    console.log('Deleting plant', id);
+    // TODO: call delete API, then refresh list
+  }
+
+  updatePlant(p: PlantDto) {
+    this.plantService.setPlant(p);
+    this.router.navigate(['/dashboard/updateplant', p.plantId]);
   }
 }

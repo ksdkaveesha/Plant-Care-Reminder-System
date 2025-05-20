@@ -16,12 +16,13 @@ export class UpdateplantComponent {
   private route = inject(ActivatedRoute);
   private plantService = inject(PlantService);
 
-  plant: any = {
-    plantId: '',
-    plantname: '',
+  plant = {
+    plantId: 0,
+    userId: 0,
+    plantName: '',
     species: '',
-    wateringFreq: '',
-    fertilizingFreq: '',
+    wateringFrequency: 0,
+    fertilizingFrequency: 0,
     lastWatered: '',
     lastFertilized: '',
     careInstructions: ''

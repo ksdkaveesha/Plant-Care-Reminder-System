@@ -18,7 +18,7 @@ namespace Plant_Care_Reminder_System.Controllers
         public async Task<IActionResult> AddUser([FromBody] UserDto user)
         {
             bool success = await _userService.AddUserAsync(user.Username, user.Email, user.Password);
-            if (success)
+            if (success)                
                 return Ok("User added successfully.");
             return BadRequest("Failed to add user.");
         }

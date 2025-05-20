@@ -15,7 +15,8 @@ export const routes: Routes = [
       { path: '', redirectTo: 'viewplants', pathMatch: 'full' },
       { path: 'viewplants', loadComponent: () => import('./dashboard/viewplant/viewplant.component').then(m => m.ViewplantComponent) },
       { path: 'addplant', loadComponent: () => import('./dashboard/addplant/addplant.component').then(m => m.AddplantComponent) },
-      { path: 'updateplant/:id', loadComponent: () => import('./dashboard/updateplant/updateplant.component').then(m => m.UpdateplantComponent) }
+      { path: 'updateplant/:id', loadComponent: () => import('./dashboard/updateplant/updateplant.component').then(m => m.UpdateplantComponent) },
+      { path: 'remainders', loadComponent: () => import('./dashboard/remainders/remainders.component').then(m => m.RemaindersComponent) },
     ]
   }
 ];

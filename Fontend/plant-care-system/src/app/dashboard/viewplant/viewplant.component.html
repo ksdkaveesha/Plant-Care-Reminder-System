@@ -37,10 +37,10 @@
       <div class="d-flex gap-2 ">
         <div class="input-group input-group-sm search-id">
           <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
-          <input class="form-control border-start-0" placeholder="Enter User Id" [(ngModel)]="searchTerm" (input)="onSearch()" />
+          <input class="form-control border-start-0" placeholder="User Id: 1" [(ngModel)]="searchTerm" (input)="onSearch()" />
         </div>
 
-        <select class="form-select form-select-sm w-auto" [(ngModel)]="itemsPerPage" (change)="onItemsPerPageChange()">
+        <select class="form-select form-select-sm w-auto" [(ngModel)]="visibleCount" (change)="onItemsPerPageChange()">
             <option [value]="5">Show 5</option>
             <option [value]="10">10</option>
             <option [value]="50">50</option>
@@ -67,19 +67,19 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let plant of plantList">
+          <tr *ngFor="let plant of plants()">
             <td>{{ plant.plantId }}</td>
-            <td>{{ plant.plantname }}</td>
+            <td>{{ plant.plantName }}</td>
             <td>{{ plant.species }}</td>
-            <td>{{ plant.wateringFreq }}</td>
-            <td>{{ plant.fertilizingFreq }}</td>
+            <td>{{ plant.wateringFrequency }}</td>
+            <td>{{ plant.fertilizingFrequency }}</td>
             <td>{{ plant.lastWatered }}</td>
             <td>{{ plant.lastFertilized }}</td>
             <td>{{ plant.careInstructions }}</td>
             <td class="text-end d-flex">
-              <button class="btn btn-sm btn-warning px-3 me-1" (click)="UpdatePlant(plant)">Update</button>
+              <button class="btn btn-sm btn-warning px-3 me-1" (click)="updatePlant(plant)">Update</button>
               <button class="btn btn-sm btn-outline-danger px-3"
-                      (click)="deletePlant(plant.plantId)">Delete</button>
+                      >Delete</button>
             </td>
           </tr>
         </tbody>

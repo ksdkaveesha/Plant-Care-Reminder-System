@@ -1,0 +1,58 @@
+<div class="page-wrapper">  
+
+  <!-- all plants -->
+  <div class="content-box bg-white rounded-4 p-4">
+
+    <div class="d-flex justify-content-between flex-wrap align-items-center mb-4 gap-2">
+      <div>
+        <h3 class="fw-bold mb-1">All Reminders</h3>
+        <p class="text-success small mb-0">All Reminders Shows Here</p>
+      </div>
+
+      <div class="d-flex gap-2 ">
+        <div class="input-group input-group-sm search-id">
+          <span class="input-group-text bg-white border-end-0"><i class="fas fa-search"></i></span>
+  <input type="text" class="form-control border-start-0" placeholder="User Id: 1" [(ngModel)]="userIdTerm" (input)="onSearch()" />
+</div>
+<div class="input-group input-group-sm search-id">
+          <span class="input-group-text bg-white border-end-0"><i class="fas fa-date"></i></span>
+          <input type="date" class="form-control border-start-0" [(ngModel)]="dateTerm" (input)="onSearch()" />
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="errorMsg() as msg" class="text-center text-gray-500 py-4">
+      {{ msg }}
+    </div>
+
+    <div class="table-responsive" *ngIf="!errorMsg() && reminders().length">
+      <table class="table align-middle mb-0">
+        <thead class="table-light text-nowrap">
+          <tr>
+            <th>Remainder ID</th>
+            <th>Plant ID</th>
+            <th>User ID</th>
+            <th>Remainder Date</th>
+            <th>Remainder Type<br><small class="fw-normal">W/F</small></th>            
+            <th class="text-end">Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let plant of reminders()">
+            <td>{{ plant.reminder_id }}</td>
+            <td>{{ plant.plant_id }}</td>
+            <td>{{ plant.user_id }}</td>
+            <td>{{ plant.reminder_date }}</td>
+            <td>{{ plant.reminder_type }}</td>
+            <td class="text-end d-flex">
+              <button class="btn btn-sm btn-primary px-3 me-1" (click)="markAsWatered(plant.plant_id)">Watered</button>
+              <button class="btn btn-sm btn-warning px-3" (click)="markAsFertilized(plant.plant_id)">Fertilized</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

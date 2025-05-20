@@ -11,30 +11,30 @@
     </div>
 
     <div class="content-box bg-white rounded-4">
-        <form>
+        <form #f="ngForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
-                <label for="userId" class="form-label">User Id</label>
-                <input type="text" id="userId" formControlName="userId" class="form-control" required>
+                <label for="user_id" class="form-label">User Id</label>
+                <input type="text" id="user_id" name="user_id" class="form-control" [(ngModel)]="plant.user_id" required>
             </div>
             <div class="mb-3">
-                <label for="name" class="form-label">Plant Name</label>
-                <input type="text" id="name" formControlName="name" class="form-control" required>
+                <label for="plant_name" class="form-label">Plant Name</label>
+                <input type="text" id="plant_name" name="plant_name" class="form-control" [(ngModel)]="plant.plant_name" required>
             </div>
             <div class="mb-3">
                 <label for="species" class="form-label">Species</label>
-                <input type="text" id="species" formControlName="species" class="form-control" required>
+                <input type="text" id="species" name="species" class="form-control" [(ngModel)]="plant.species" required>
             </div>
             <div class="mb-3">
-                <label for="wateringFreq" class="form-label">Watering Frequency (per week)</label>
-                <input type="number" id="wateringFreq" formControlName="wateringFreq" class="form-control" required>
+                <label for="watering_frequency" class="form-label">Watering Frequency (per week)</label>
+                <input type="number" id="watering_frequency" name="watering_frequency" class="form-control" [(ngModel)]="plant.watering_frequency" required>
             </div>
             <div class="mb-3">
-                <label for="fertilizingFreq" class="form-label">Fertilizing Frequency (per week)</label>
-                <input type="number" id="fertilizingFreq" formControlName="fertilizingFreq" class="form-control" required>
+                <label for="fertilizing_frequency" class="form-label">Fertilizing Frequency (per week)</label>
+                <input type="number" id="fertilizing_frequency" name="fertilizing_frequency" class="form-control" [(ngModel)]="plant.fertilizing_frequency" required>
             </div>
             <div class="mb-3">
-                <label for="careInstructions" class="form-label">Care Instructions</label>
-                <textarea id="careInstructions" formControlName="careInstructions" class="form-control" rows="3" required></textarea>
+                <label for="care_instructions" class="form-label">Care Instructions</label>
+                <textarea id="care_instructions" name="care_instructions" class="form-control" rows="3" [(ngModel)]="plant.care_instructions" required></textarea>
             </div>
             <button type="submit" class="btn btn-success">Add Plant</button>
         </form>
