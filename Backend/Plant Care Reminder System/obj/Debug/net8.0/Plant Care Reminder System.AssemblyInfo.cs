@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Plant Care Reminder System")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8fc5056b70dc854d5c200f5d683a8634d68867d9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+01c7f44525253c5fdfff55bf5bb394f45da6ae3d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Plant Care Reminder System")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Plant Care Reminder System")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

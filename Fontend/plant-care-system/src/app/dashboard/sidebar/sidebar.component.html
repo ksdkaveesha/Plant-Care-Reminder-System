@@ -58,10 +58,13 @@
       <div class="d-flex align-items-center mt-4">
         <img src="assets/kaveesha.jpg" alt="User" class="rounded-circle me-2" style="height: 40px; width: 40px; object-fit: cover;" />
         <div class="me-auto">
-          <div class="fw-semibold text-dark">Kaveesha</div>
+          <div class="fw-semibold text-dark">{{ username }}</div>
           <div class="text-muted small">Staff</div>
         </div>
-        <a href="/login" class="text-decoration-none"><i class="fas fa-power-off text-muted" alt="Log Out"></i></a>
+        <button class="btn btn-link p-0" (click)="onLogout()" title="Logout">
+          <i class="fas fa-power-off text-muted"></i>
+        </button>
+
       </div>
 
     </div>

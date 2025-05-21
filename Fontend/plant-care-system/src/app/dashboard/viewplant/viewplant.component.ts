@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { trigger, transition, style, animate } from '@angular/animations';
-
 import { PlantService } from '../../Services/plant.service';
 import { PlantDto }   from '../../models/plant.model';
+import { jwtDecode } from 'jwt-decode';
+import { JwtPayload } from '../../Helpers/jwt.helper';
+
 
 @Component({
   selector   : 'app-viewplants',
@@ -30,6 +32,7 @@ import { PlantDto }   from '../../models/plant.model';
 })
 
 export class ViewplantComponent {
+  
 
   /* ────────────────────────── UI state ────────────────────────── */
   searchTerm   = '';
@@ -81,46 +84,34 @@ export class ViewplantComponent {
   }
 
   /* ────────────────── initial load ───────────────────── */
-  ngOnInit() {
-    this.fetchByUser(1);                   // default user
-  }
+  ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const decoded = jwtDecode<JwtPayload>(token);
+      const userId = decoded.userId;
 
-  /* ────────────────── search handler ─────────────────── */
-  onSearch(): void {
-    const term = this.searchTerm.trim();
-    if (!term) {                    // blank → revert to user-1
-      this.fetchByUser(1);
-      return;
+      if (userId) {
+        this.fetchByUser(userId);
+      } else {
+        console.error('User ID not found in token');
+      }
+    } else {
+      console.error('Token not found in localStorage');
     }
-
-    const id = +term;
-    if (isNaN(id)) {
-      this.plantList.set([]);
-      this.visibleCount = 0;
-      return;
-    }
-    this.fetchByUser(id);
-  }
+  }  
 
   /* ─────────── centralised fetch (uses same code) ────── */
   private fetchByUser(userId: number): void {
-    this.loading.set(true);
     this.plantService.GetPlantsByUser(userId).subscribe({
-      next : rows => {
-        this.plants.set(rows);
-        this.refreshTable();
-        this.loading.set(false);
+      next: rows => {
+        this.plants.set(rows);      // Set the fetched data
+        this.refreshTable();        // Update the visible table
       },
       error: err => {
-        this.errorMsg.set('Server error – check console.');
-        console.error(err);
-        this.loading.set(false);
+        console.error('Error fetching plants:', err);
       }
     });
   }
-
-
-
 
   /* ───────────────────────── row actions ──────────────────────── */
   deletePlant(id: number) {

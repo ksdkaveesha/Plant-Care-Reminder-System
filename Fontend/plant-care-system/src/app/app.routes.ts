@@ -1,6 +1,7 @@
 // app.routes.ts
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -10,13 +11,14 @@ export const routes: Routes = [
 
   {
     path: 'dashboard',
-    component: DashboardComponent,
+    component: DashboardComponent, 
+    canActivate: [authGuard],    
     children: [
       { path: '', redirectTo: 'viewplants', pathMatch: 'full' },
-      { path: 'viewplants', loadComponent: () => import('./dashboard/viewplant/viewplant.component').then(m => m.ViewplantComponent) },
-      { path: 'addplant', loadComponent: () => import('./dashboard/addplant/addplant.component').then(m => m.AddplantComponent) },
-      { path: 'updateplant/:id', loadComponent: () => import('./dashboard/updateplant/updateplant.component').then(m => m.UpdateplantComponent) },
-      { path: 'remainders', loadComponent: () => import('./dashboard/remainders/remainders.component').then(m => m.RemaindersComponent) },
+      { path: 'viewplants', loadComponent: () => import('./dashboard/viewplant/viewplant.component').then(m => m.ViewplantComponent), canActivate: [authGuard] },
+      { path: 'addplant', loadComponent: () => import('./dashboard/addplant/addplant.component').then(m => m.AddplantComponent), canActivate: [authGuard] },
+      { path: 'updateplant/:id', loadComponent: () => import('./dashboard/updateplant/updateplant.component').then(m => m.UpdateplantComponent), canActivate: [authGuard] },
+      { path: 'remainders', loadComponent: () => import('./dashboard/remainders/remainders.component').then(m => m.RemaindersComponent), canActivate: [authGuard] },
     ]
   }
 ];
