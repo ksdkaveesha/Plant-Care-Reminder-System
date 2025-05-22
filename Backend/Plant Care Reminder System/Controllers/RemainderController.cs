@@ -20,8 +20,6 @@ namespace Plant_Care_Reminder_System.Controllers
         public async Task<IActionResult> GetRemainder(int userId, DateTime reminderDate)
         {
             var reminders = await _addRemainderService.GetRemindersAsync(userId, reminderDate);
-            if (reminders == null || !reminders.Any())
-                return NotFound("No reminders found for this user.");
             return Ok(reminders);
         }
     }

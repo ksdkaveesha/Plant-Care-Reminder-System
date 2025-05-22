@@ -6,19 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Plant_Care_Reminder_System;
 using Plant_Care_Reminder_System.Services;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// ---------- Services ----------
-builder.Services.AddCors(opt =>
-{
-    opt.AddPolicy("Dev", b =>
-        b.WithOrigins("http://localhost:4200")
-         .AllowAnyHeader()
-         .AllowAnyMethod());
-});
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +16,7 @@ builder.Services.AddAuthorization();
 
 // scoped services …
 builder.Services.AddScoped<IUserAddService, UserAddService>();
+builder.Services.AddScoped<ITotalCountService, TotalCountService>();
 builder.Services.AddScoped<IAddPlantService, AddPlantService>();
 builder.Services.AddScoped<IGetPlantByUserService, GetPlantByUserService>();
 builder.Services.AddScoped<IGetRemainderService, GetRemainderService>();

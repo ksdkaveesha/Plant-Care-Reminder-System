@@ -7,6 +7,8 @@ import { PlantService } from '../../Services/plant.service';
 import { PlantDto }   from '../../models/plant.model';
 import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../../Helpers/jwt.helper';
+import { StatsDto } from '../../models/stats.model';
+import { UserService } from '../../Services/user.service';
 
 
 @Component({
@@ -32,23 +34,21 @@ import { JwtPayload } from '../../Helpers/jwt.helper';
 })
 
 export class ViewplantComponent {
-  
+  stats = signal<StatsDto>({ totalUsers: 0, totalPlants: 0 });
+  errorMsg = signal('');
 
   /* ────────────────────────── UI state ────────────────────────── */
   searchTerm   = '';
   itemsPerPage: number | 'all' = 5;
 
   loading   = signal(true);
-  errorMsg  = signal('');
   plants    = signal<PlantDto[]>([]);
   plantList = signal<PlantDto[]>([]);     // list that the table actually shows
 
-  /* ───────────────────────── dashboard stats (mock) ───────────── */
-  stats = { totalUsers: 5422, totalPlants: 1893 };
 
   visibleCount: number = 0;
 
-  constructor(private router: Router, private plantService: PlantService) { }
+  constructor(private router: Router, private plantService: PlantService, private userService: UserService) { }
 
     /* ────────────────────────── table helpers ───────────────────── */
   updatePlantList(): void {
@@ -98,6 +98,14 @@ export class ViewplantComponent {
     } else {
       console.error('Token not found in localStorage');
     }
+
+    this.userService.getStats().subscribe({
+      next: data => this.stats.set(data),
+      error: err => {
+        console.error('Failed to load stats', err);
+        this.errorMsg.set('Could not load statistics.');
+      },
+    });
   }  
 
   /* ─────────── centralised fetch (uses same code) ────── */

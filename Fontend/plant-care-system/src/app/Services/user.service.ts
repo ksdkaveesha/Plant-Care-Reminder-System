@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient }           from '@angular/common/http';
 import { UserDto }              from '../models/user.model';
-import { PlantDto }             from '../models/plant.model';
+import { StatsDto }             from '../models/stats.model';
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
@@ -17,5 +17,8 @@ export class UserService {
     );
   }
 
+  getStats() {
+    return this.http.get<StatsDto>('http://localhost:5230/api/User/GetStats');
+  }
   
 }

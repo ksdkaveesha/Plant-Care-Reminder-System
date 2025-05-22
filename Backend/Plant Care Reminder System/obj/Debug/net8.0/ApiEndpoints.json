@@ -138,6 +138,16 @@
   },
   {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.UserController",
+    "Method": "GetStatistics",
+    "RelativePath": "api/User/GetStats",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.UserController",
     "Method": "AddUser",
     "RelativePath": "api/User/UserAdd",
     "HttpMethod": "POST",

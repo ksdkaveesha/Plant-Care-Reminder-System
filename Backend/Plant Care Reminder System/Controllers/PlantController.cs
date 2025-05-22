@@ -46,9 +46,11 @@ namespace Plant_Care_Reminder_System.Controllers
         public async Task<IActionResult> UpdateLastWateredDate(int plantId, [FromBody] DateTime lastWateredDate)
         {
             bool success = await _lastWateredService.UpdateLastWateredDateAsync(plantId, lastWateredDate);
-            if (success)
-                return Ok("Last watered date updated successfully.");
-            return BadRequest("Failed to update last watered date.");
+            if (!success)
+                return BadRequest("Update failed");
+
+            return Ok(new { message = "Watered date updated successfully" });
+
         }
 
 
@@ -57,7 +59,7 @@ namespace Plant_Care_Reminder_System.Controllers
         {
             bool success = await _lastFertilizedService.UpdateLastWateredDateAsync(plantId, lastFertilizedDate);
             if (success)
-                return Ok("Last fertilized date updated successfully.");
+                return Ok(new { message = "Fertilized date updated successfully" });
             return BadRequest("Failed to update last fertilized date.");
         }
     }

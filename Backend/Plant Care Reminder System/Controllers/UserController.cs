@@ -9,9 +9,12 @@ namespace Plant_Care_Reminder_System.Controllers
     public class UserController : Controller
     {
         private readonly IUserAddService _userService;
-        public UserController(IUserAddService UserAddService) 
+        private readonly ITotalCountService _totalCountService;
+
+        public UserController(IUserAddService UserAddService, ITotalCountService TotalCountService) 
         {
             _userService = UserAddService;
+            _totalCountService = TotalCountService;
         }
 
         [HttpPost("UserAdd")]
@@ -23,7 +26,21 @@ namespace Plant_Care_Reminder_System.Controllers
             return BadRequest("Failed to add user.");
         }
 
+
+        [HttpGet("GetStats")]
+        public async Task<IActionResult> GetStatistics()
+        {
+            int userCount = await _totalCountService.GetTotalUsersAsync();
+            int plantCount = await _totalCountService.GetTotalPlantsAsync();
+
+            return Ok(new
+            {
+                totalUsers = userCount,
+                totalPlants = plantCount
+            });
+        }
+
     }
 
-    
+
 }

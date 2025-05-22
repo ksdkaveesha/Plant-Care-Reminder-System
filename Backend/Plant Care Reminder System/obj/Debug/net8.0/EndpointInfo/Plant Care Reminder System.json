@@ -285,6 +285,18 @@
           }
         }
       }
+    },
+    "/api/User/GetStats": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
