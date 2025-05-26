@@ -12,13 +12,15 @@ namespace Plant_Care_Reminder_System.Controllers
         private readonly IGetPlantByUserService _getPlantService;
         private readonly ILastWateredService _lastWateredService;
         private readonly ILastFertilizedService _lastFertilizedService;
+        private readonly IUpdatePlantService _updatePlantService;
 
-        public PlantController(IAddPlantService addPlantService, IGetPlantByUserService getPlantService, ILastWateredService lastWateredService, ILastFertilizedService lastFertilizedService)
+        public PlantController(IAddPlantService addPlantService, IGetPlantByUserService getPlantService, ILastWateredService lastWateredService, ILastFertilizedService lastFertilizedService, IUpdatePlantService updatePlantService)
         {
             _addPlantService = addPlantService;
             _getPlantService = getPlantService;
             _lastWateredService = lastWateredService;
             _lastFertilizedService = lastFertilizedService;
+            _updatePlantService = updatePlantService;
         }
 
 
@@ -62,6 +64,21 @@ namespace Plant_Care_Reminder_System.Controllers
                 return Ok(new { message = "Fertilized date updated successfully" });
             return BadRequest("Failed to update last fertilized date.");
         }
+
+
+        [HttpPut("UpdatePlant")]
+        public async Task<IActionResult> UpdatePlant(int plant_id,string plant_name,string species,int watering_frequency,int fertilizing_frequency,string care_instructions)
+                {
+                    Console.WriteLine($"Updating plant {plant_id} with name {plant_name}...");
+
+                    bool success = await _updatePlantService.UpdatePlantAsync(
+                        plant_id, plant_name, species, watering_frequency, fertilizing_frequency, care_instructions);
+
+                    if (success)
+                        return Ok("Plant Updated successfully.");
+
+                    return NotFound("Failed to update plant. Make sure the plant ID exists.");
+                }
     }
 
 }

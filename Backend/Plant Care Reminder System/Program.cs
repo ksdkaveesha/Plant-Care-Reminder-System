@@ -13,6 +13,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAuthorization();
+builder.Services.AddHttpClient();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+    });
+});
+
 
 // scoped services …
 builder.Services.AddScoped<IUserAddService, UserAddService>();
@@ -23,6 +32,7 @@ builder.Services.AddScoped<IGetRemainderService, GetRemainderService>();
 builder.Services.AddScoped<ILastWateredService, LastWateredService>();
 builder.Services.AddScoped<ILastFertilizedService, LastFertilizedService>();
 builder.Services.AddScoped<IGenerateTokenService, GenerateTokenService>();
+builder.Services.AddScoped<IUpdatePlantService, UpdatePlantService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -76,6 +86,7 @@ builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
+
 // ---------- Middleware ----------
 if (app.Environment.IsDevelopment())
 {
@@ -85,6 +96,7 @@ if (app.Environment.IsDevelopment())
 
 // Use CORS
 app.UseCors("AllowAngularApp");
+app.UseCors("AllowAll");
 
 app.UseHttpsRedirection();
 

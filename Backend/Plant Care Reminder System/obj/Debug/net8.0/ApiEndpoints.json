@@ -32,6 +32,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.ImageGenerationController",
+    "Method": "GenerateImage",
+    "RelativePath": "api/ImageGeneration/generate-image",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "promptModel",
+        "Type": "Plant_Care_Reminder_System.Models.ImageRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
     "Method": "AddPlant",
     "RelativePath": "api/Plant/AddPlant",
@@ -101,6 +117,47 @@
         "Name": "lastWateredDate",
         "Type": "System.DateTime",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.PlantController",
+    "Method": "UpdatePlant",
+    "RelativePath": "api/Plant/UpdatePlant",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "plant_id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "plant_name",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "species",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "watering_frequency",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "fertilizing_frequency",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "care_instructions",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

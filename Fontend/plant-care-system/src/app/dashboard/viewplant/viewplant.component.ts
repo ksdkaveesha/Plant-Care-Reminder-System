@@ -9,7 +9,10 @@ import { jwtDecode } from 'jwt-decode';
 import { JwtPayload } from '../../Helpers/jwt.helper';
 import { StatsDto } from '../../models/stats.model';
 import { UserService } from '../../Services/user.service';
-
+import { ImageGenerationService } from '../../Services/image-generation.service';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector   : 'app-viewplants',
@@ -44,11 +47,20 @@ export class ViewplantComponent {
   loading   = signal(true);
   plants    = signal<PlantDto[]>([]);
   plantList = signal<PlantDto[]>([]);     // list that the table actually shows
-
+  prompt = '';
+  imageUrl: any;
+  generatedImageUrl: any;
 
   visibleCount: number = 0;
 
-  constructor(private router: Router, private plantService: PlantService, private userService: UserService) { }
+  constructor(
+    private router: Router,
+    private plantService: PlantService,
+    private userService: UserService,
+    private imageService: ImageGenerationService,
+    private sanitizer: DomSanitizer,
+    private http: HttpClient
+  ) { }
 
     /* ────────────────────────── table helpers ───────────────────── */
   updatePlantList(): void {
@@ -58,6 +70,31 @@ export class ViewplantComponent {
     } else {
       this.plantList.set(src.slice(0, this.itemsPerPage));
     }
+  }
+
+  generateImage(prompt: string): void {
+    const body = { prompt }; // wraps string into JSON object
+
+    this.http.post('http://localhost:5230/api/ImageGeneration/generate-image', body, {
+      responseType: 'blob',
+      headers: { 'Content-Type': 'application/json' }
+    }).subscribe({
+      next: (blob) => {
+        const imageUrl = URL.createObjectURL(blob);
+        this.generatedImageUrl = imageUrl;
+      },
+      error: (error) => {
+        if (error.error instanceof Blob) {
+          const reader = new FileReader();
+          reader.onload = () => {
+            console.error('Image generation failed:', reader.result);
+          };
+          reader.readAsText(error.error);
+        } else {
+          console.error('Image generation failed:', error);
+        }
+      }
+    });
   }
 
   /* ─────────── call this whenever either
