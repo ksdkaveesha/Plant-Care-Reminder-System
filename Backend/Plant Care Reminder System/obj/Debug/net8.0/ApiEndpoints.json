@@ -32,6 +32,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "Plant_Care_Reminder_System.Controllers.EndpointsController",
+    "Method": "GetAllEndpoints",
+    "RelativePath": "api/Endpoints/listendpoints",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Plant_Care_Reminder_System.Controllers.ImageGenerationController",
     "Method": "GenerateImage",
     "RelativePath": "api/ImageGeneration/generate-image",

@@ -22,12 +22,6 @@ D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder S
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.build.json
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.development.json
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets\msbuild.Plant Care Reminder System.Microsoft.AspNetCore.StaticWebAssets.props
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets\msbuild.Plant Care Reminder System.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets\msbuild.build.Plant Care Reminder System.props
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Plant Care Reminder System.props
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Plant Care Reminder System.props
-D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.pack.json
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\Plant Ca.1C15E8B5.Up2Date
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\Plant Care Reminder System.dll
@@ -99,3 +93,8 @@ D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder S
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\bin\Debug\net8.0\package-lock.json
 D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\bin\Debug\net8.0\package.json
+D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\Blue Lotus 360\Works\Plant Care Reminder System\Backend\Plant Care Reminder System\obj\Debug\net8.0\staticwebassets.build.json.cache

@@ -67,6 +67,18 @@
         }
       }
     },
+    "/api/Endpoints/listendpoints": {
+      "get": {
+        "tags": [
+          "Endpoints"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/ImageGeneration/generate-image": {
       "post": {
         "tags": [
