@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj": {}
+    "E:\\Github\\Plant-Care-Reminder-System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj": {}
   },
   "projects": {
-    "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj": {
+    "E:\\Github\\Plant-Care-Reminder-System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj",
+        "projectUniqueName": "E:\\Github\\Plant-Care-Reminder-System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj",
         "projectName": "Plant Care Reminder System",
-        "projectPath": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj",
-        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "D:\\Blue Lotus 360\\Works\\Plant Care Reminder System\\Backend\\Plant Care Reminder System\\obj\\",
+        "projectPath": "E:\\Github\\Plant-Care-Reminder-System\\Backend\\Plant Care Reminder System\\Plant Care Reminder System.csproj",
+        "packagesPath": "C:\\Users\\kaveesha\\.nuget\\packages\\",
+        "outputPath": "E:\\Github\\Plant-Care-Reminder-System\\Backend\\Plant Care Reminder System\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\kaveesha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +27,7 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.telerik.com/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net8.0": {
@@ -96,7 +95,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.301/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
